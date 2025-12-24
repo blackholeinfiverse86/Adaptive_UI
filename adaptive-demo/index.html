@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive UI Demo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Adaptive UI Demo</h1>
+        
+        <div class="tile-grid" id="tileGrid">
+            <div class="tile" id="tile-0" data-content="Dashboard">
+                <h3>Dashboard</h3>
+                <p>Main overview</p>
+            </div>
+            <div class="tile" id="tile-1" data-content="Analytics">
+                <h3>Analytics</h3>
+                <p>Data insights</p>
+            </div>
+            <div class="tile" id="tile-2" data-content="Settings">
+                <h3>Settings</h3>
+                <p>Configuration</p>
+            </div>
+            <div class="tile" id="tile-3" data-content="Profile">
+                <h3>Profile</h3>
+                <p>User account</p>
+            </div>
+            <div class="tile" id="tile-4" data-content="Reports">
+                <h3>Reports</h3>
+                <p>Generate reports</p>
+            </div>
+            <div class="tile" id="tile-5" data-content="Help">
+                <h3>Help</h3>
+                <p>Support center</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <h2>Test Behaviour Signals</h2>
+            <div class="control-group">
+                <button onclick="testSignal('undo-loop')" class="test-btn">Undo Loop</button>
+                <button onclick="testSignal('hover-repeat')" class="test-btn">Hover Repeat</button>
+                <button onclick="testSignal('dwell')" class="test-btn">Dwell</button>
+                <button onclick="testSignal('backtrack')" class="test-btn">Backtrack</button>
+                <button onclick="testSignal('fast-action')" class="test-btn">Fast Action</button>
+                <button onclick="runAdaptationTests()" class="test-btn" style="background: linear-gradient(135deg, #00b894, #00a085);">Run All Tests</button>
+                <button onclick="stressTester.runAllTests()" class="test-btn" style="background: linear-gradient(135deg, #e17055, #d63031);">Stress Test</button>
+            </div>
+            <div class="target-selector">
+                <label>Target Tile: </label>
+                <select id="targetTile">
+                    <option value="auto">Auto-select</option>
+                    <option value="0">Dashboard</option>
+                    <option value="1">Analytics</option>
+                    <option value="2">Settings</option>
+                    <option value="3">Profile</option>
+                    <option value="4">Reports</option>
+                    <option value="5">Help</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="debug-console">
+            <h3>Debug Log</h3>
+            <div id="debugLog"></div>
+            <button onclick="clearLog()" class="clear-btn">Clear Log</button>
+        </div>
+    </div>
+
+    <script src="adaptiveController.js"></script>
+    <script src="adaptive-new.js"></script>
+    <script src="stressTester.js"></script>
+    <script src="signal.js"></script>
+    <script src="test-adaptations.js"></script>
+    <script>
+        window.adaptiveUI = new AdaptiveUI();
+        window.stressTester = new StressTester(window.adaptiveUI.controller);
+        console.log('🚀 Adaptive UI System Initialized');
+    </script>
+</body>
+</html>
