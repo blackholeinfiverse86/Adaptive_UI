@@ -1,117 +1,58 @@
-# Adaptation Map
+# How Behaviors Connect to UI Changes
 
-## How Behaviors Connect to UI Changes
+This shows the complete flow from what users do to how the interface responds.
 
-This document shows the complete flow from user behavior to visual response.
+## The Connections
 
----
+### Undo Loop → Focus Assist
+**What I see:** User clicks undo repeatedly 
+**What I do:**
+- Bright highlight with warm colors
+- Add visible border
+- Duration: 3 seconds
+**Message:** "Try this one"
 
-## Behavior → Pattern → UI Effect
+### Hover Repeat → Hover Relief
+**What I see:** User hovers over same area multiple times
+**What I do:**
+- Fade other elements with blur
+- Give focused element soft pink glow
+- Add gentle breathing animation
+- Duration: 4 seconds
+**Message:** "Take your time here"
 
-### 1. Undo Loop Behavior
-**What the user does:**
-- Clicks undo repeatedly (3+ times in quick succession)
-- Shows confusion about what action to take
-
-**Pattern triggered:** Focus Assist
-
-**UI effect:**
-- Target element gets bright highlight with warm colors
-- Scales up slightly (8% larger)
-- Adds visible border
-- Lasts 3 seconds
-
-**Visual cue:** "This is the main action you should take"
-
----
-
-### 2. Hover Repeat Behavior
-**What the user does:**
-- Hovers over the same area multiple times
-- Mouse moves back and forth without clicking
-- Shows indecision
-
-**Pattern triggered:** Hover Relief
-
-**UI effect:**
-- Other elements fade and blur slightly
-- Focused element gets soft pink glow
-- Gentle breathing animation (slow pulse)
-- Lasts 4 seconds
-
-**Visual cue:** "Take your time, focus here"
-
----
-
-### 3. Long Dwell Behavior
-**What the user does:**
-- Stays focused on one area for extended time
-- Minimal mouse movement
-- Shows deep concentration
-
-**Pattern triggered:** Attention Re-centering
-
-**UI effect:**
-- Element pulses with calm blue colors
+### Long Dwell → Attention Re-centering
+**What I see:** User stays focused on one area for extended time
+**What I do:**
+- Pulse element with calm blue colors
 - Smooth, continuous animation
-- Reinforces current focus
-- Lasts 4 seconds
+- Reinforce current focus
+- Duration: 4 seconds
+**Message:** "You're on the right track"
 
-**Visual cue:** "You're in the right place, keep going"
+### Backtrack → Navigation Guide
+**What I see:** User navigates back and forth between sections
+**What I do:**
+- Pulse current element with teal/green
+- Show arrow hints on other elements
+- Provide directional guidance
+- Duration: 3.5 seconds
+**Message:** "Here's where you are and where you can go"
 
----
-
-### 4. Backtrack Behavior
-**What the user does:**
-- Navigates back and forth between sections
-- Revisits previous areas repeatedly
-- Shows navigation uncertainty
-
-**Pattern triggered:** Navigation Guide
-
-**UI effect:**
-- Current element pulses with teal/green
-- Other elements show subtle arrow hints
-- Directional visual guidance
-- Lasts 3.5 seconds
-
-**Visual cue:** "Here's where you are, these are your options"
-
----
-
-## Technical Flow
-
+## The Technical Flow
 ```
-User Behavior
-    ↓
-Signal Detection (event capture)
-    ↓
-Signal Interpretation (pattern matching)
-    ↓
-Pattern Selection (named pattern)
-    ↓
-UI Mutation (CSS class application)
-    ↓
-Automatic Cleanup (timeout-based)
+User does something → I detect the pattern → I pick a response → CSS changes happen → Auto cleanup
 ```
 
----
+## Timing Rules I Follow
+- **Throttle**: 1 second between same signals (no spam)
+- **Debounce**: 100ms processing delay (smooth operation)
+- **Duration**: 3-4 seconds per pattern (not too long)
+- **Limit**: Only one pattern at a time (no chaos)
 
-## Timing and Throttling
+## What Each Behavior Tells Me
+- **Confusion** → needs clear guidance
+- **Indecision** → needs calm focus
+- **Deep focus** → needs gentle reinforcement
+- **Lost navigation** → needs directional help
 
-- **Throttle duration:** 1 second between same signals
-- **Debounce delay:** 100ms for processing
-- **Pattern durations:** 3-4 seconds (varies by pattern)
-- **Only one pattern active at a time**
-
----
-
-## Why This Matters
-
-Each behavior reveals something about the user's mental state:
-- **Confusion** needs guidance
-- **Indecision** needs calm
-- **Focus** needs reinforcement
-- **Lost navigation** needs direction
-
-The UI responds with appropriate emotional support through visual design.

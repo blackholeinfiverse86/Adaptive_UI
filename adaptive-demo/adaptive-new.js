@@ -1,6 +1,11 @@
 class AdaptiveUI {
     constructor() {
         this.controller = new AdaptiveController();
+        this.logPatterns = [
+            { pattern: /error/i, level: 'log-error' },
+            { pattern: /warn/i, level: 'log-warning' },
+            { pattern: /executing|cleared/i, level: 'log-info' }
+        ];
         this.log('AdaptiveUI initialized with new controller architecture');
     }
 
@@ -23,18 +28,25 @@ class AdaptiveUI {
                 try {
                     dataStr = ` ${JSON.stringify(data)}`;
                 } catch (error) {
-                    console.warn('Failed to stringify data:', error.message);
-                    if (typeof data === 'object') {
-                        dataStr = ` [Object: ${data.constructor?.name || 'Unknown'}]`;
-                    } else {
-                        dataStr = ` [${typeof data}: ${String(data)}]`;
-                    }
+                    dataStr = ` [${typeof data}: ${String(data).substring(0, 50)}]`;
                 }
             }
-            logLine.textContent = logEntry + dataStr;
+            logLine.textContent = `${logEntry}${dataStr}`;
+            logLine.className = this.getLogLevel(message);
             debugLog.appendChild(logLine);
             debugLog.scrollTop = debugLog.scrollHeight;
+            
+            if (debugLog.children.length > 100) {
+                debugLog.removeChild(debugLog.firstChild);
+            }
         }
+    }
+    
+    getLogLevel(message) {
+        for (const { pattern, level } of this.logPatterns) {
+            if (pattern.test(message)) return level;
+        }
+        return 'log-debug';
     }
 }
 

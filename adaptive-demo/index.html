@@ -47,6 +47,9 @@
                 <button onclick="testSignal('fast-action')" class="test-btn">Fast Action</button>
                 <button onclick="runAdaptationTests()" class="test-btn" style="background: linear-gradient(135deg, #00b894, #00a085);">Run All Tests</button>
                 <button onclick="stressTester.runAllTests()" class="test-btn" style="background: linear-gradient(135deg, #e17055, #d63031);">Stress Test</button>
+                <button onclick="reliabilityTester.runReliabilityTests()" class="test-btn" style="background: linear-gradient(135deg, #6c5ce7, #5f3dc4);">Reliability Test</button>
+                <button onclick="finalIntegrationTest.runFullSystemValidation()" class="test-btn" style="background: linear-gradient(135deg, #fd79a8, #e84393);">Final Integration</button>
+                <button onclick="stabilityTest.runLongDurationTest()" class="test-btn" style="background: linear-gradient(135deg, #00cec9, #00b894);">Stability Test</button>
             </div>
             <div class="target-selector">
                 <label>Target Tile: </label>
@@ -69,15 +72,23 @@
         </div>
     </div>
 
+    <script src="safetyPolicy.js"></script>
     <script src="adaptiveController.js"></script>
+    <script src="reliabilityManager.js"></script>
     <script src="adaptive-new.js"></script>
     <script src="stressTester.js"></script>
+    <script src="reliabilityTester.js"></script>
+    <script src="finalIntegrationTest.js"></script>
+    <script src="stabilityTest.js"></script>
+    <script src="systemDemo.js"></script>
     <script src="signal.js"></script>
     <script src="test-adaptations.js"></script>
     <script>
         window.adaptiveUI = new AdaptiveUI();
         window.stressTester = new StressTester(window.adaptiveUI.controller);
-        console.log('🚀 Adaptive UI System Initialized');
+        window.reliabilityTester = new ReliabilityTester(window.adaptiveUI.controller);
+        window.finalIntegrationTest = new FinalIntegrationTest(window.adaptiveUI.controller);
+        window.stabilityTest = new StabilityTest(window.adaptiveUI.controller);
     </script>
 </body>
 </html>

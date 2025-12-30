@@ -1,159 +1,82 @@
-# Usage Notes
-
-## When to Use Each Pattern
-
-This guide helps you decide which adaptive patterns work best for different situations.
-
----
+# When to Use Each Pattern
 
 ## Focus Assist Pattern
-
-### ✅ **Use when:**
-- Users frequently undo actions
-- Complex interfaces with many options
-- First-time user experiences
+**Use it when:**
+- People keep hitting undo (classic confusion sign)
+- Complex interfaces with lots of options
+- First-time users who look lost
 - Critical decision points
-- Forms with multiple steps
 
-### ❌ **Don't use when:**
-- Simple interfaces with obvious actions
-- Expert users who work quickly
-- Gaming or entertainment contexts
-- Mobile interfaces (touch interactions differ)
-
-### **Best for:**
-- Business applications
-- Learning platforms
-- Configuration tools
-- Multi-step processes
-
----
+**Skip it when:**
+- Simple interfaces (overkill)
+- Expert users moving fast
+- Gaming contexts (different mindset)
+- Mobile interfaces (touch is different)
 
 ## Hover Relief Pattern
-
-### ✅ **Use when:**
+**Use it when:**
 - Users need to compare options
 - Decision-heavy interfaces
-- Shopping or selection scenarios
-- Information-dense layouts
-- Users show hesitation patterns
+- Shopping/selection scenarios
+- Dense layouts with lots of info
 
-### ❌ **Don't use when:**
-- Fast-paced workflows
-- Touch-only devices
-- Simple binary choices
+**Skip it when:**
+- Fast workflows (gets in the way)
+- Touch-only devices (no hover)
+- Simple yes/no choices
 - Time-sensitive tasks
 
-### **Best for:**
-- E-commerce product selection
-- Menu navigation
-- Content browsing
-- Option comparison tools
-
----
-
 ## Attention Re-centering Pattern
-
-### ✅ **Use when:**
+**Use it when:**
 - Reading-heavy interfaces
 - Learning content
 - Long-form interactions
-- Focus is important for success
-- Users need encouragement to continue
+- Focus matters for success
 
-### ❌ **Don't use when:**
+**Skip it when:**
 - Quick task completion
-- Scanning/browsing behavior is desired
+- Browsing/scanning behavior wanted
 - Multi-tasking environments
-- Highly interactive games
-
-### **Best for:**
-- Educational content
-- Documentation
-- Tutorial systems
-- Reading applications
-
----
+- Interactive games
 
 ## Navigation Guide Pattern
-
-### ✅ **Use when:**
+**Use it when:**
 - Complex navigation structures
 - Multi-level menus
 - Workflow processes
 - Users frequently get lost
-- New user onboarding
 
-### ❌ **Don't use when:**
+**Skip it when:**
 - Simple linear flows
-- Single-page applications
+- Single-page apps
 - Expert user tools
 - Minimal design requirements
 
-### **Best for:**
-- Admin dashboards
-- Multi-step wizards
-- Complex applications
-- Onboarding flows
-
----
-
-## General Guidelines
-
-### **Interface Types That Benefit:**
+## What Works Well
 - Learning management systems
 - Business applications
 - Complex configuration tools
 - Multi-step processes
-- First-time user experiences
 
-### **Interface Types to Avoid:**
+## What Doesn't
 - Games and entertainment
 - Social media feeds
 - Simple utility apps
 - Mobile-first designs
-- Real-time collaboration tools
+- Real-time collaboration
 
-### **Cultural Considerations:**
-- All patterns use universal visual language
-- Colors chosen for broad accessibility
-- No text-based cues (language independent)
-- Gentle animations respect different cultural paces
+## My Implementation Tips
+1. Start with just one pattern (seriously)
+2. Test with actual users (not your team)
+3. Adjust timing for your specific audience
+4. Keep animations subtle (less is more)
+5. Always test accessibility
+6. Watch task completion rates
 
-### **Accessibility Notes:**
-- All animations can be disabled via CSS
-- Color is not the only indicator
-- Timing allows for different processing speeds
-- Visual changes are subtle, not jarring
+## Mistakes I've Made
+1. Tried too many patterns at once (chaos)
+2. Made animations too flashy (annoying)
+3. Ignored mobile users (bad idea)
+4. Assumed instead of testing (wrong assumptions)
+5. Forgot about accessibility (not cool)
 
----
-
-## Implementation Tips
-
-### **Start Small:**
-- Implement one pattern at a time
-- Test with real users
-- Adjust timing based on your audience
-- Monitor for user fatigue
-
-### **Customize Carefully:**
-- Keep the core behavioral logic
-- Adjust visual styling to match your brand
-- Modify timing for your user base
-- Test across different devices
-
-### **Measure Success:**
-- Track task completion rates
-- Monitor user satisfaction
-- Watch for reduced confusion indicators
-- Measure time-to-completion improvements
-
----
-
-## Common Mistakes
-
-1. **Using too many patterns at once** - Start with 1-2 patterns
-2. **Making animations too aggressive** - Keep them subtle
-3. **Ignoring mobile users** - Test on touch devices
-4. **Not testing with real users** - Assumptions can be wrong
-5. **Forgetting accessibility** - Always provide alternatives

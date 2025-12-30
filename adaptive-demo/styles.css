@@ -289,6 +289,24 @@ h1 {
     line-height: 1.4;
 }
 
+.log-error {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.log-warning {
+    color: #feca57;
+}
+
+.log-info {
+    color: #48dbfb;
+}
+
+.log-debug {
+    color: #00ff00;
+    opacity: 0.8;
+}
+
 .clear-btn {
     background: #e53e3e;
     color: white;
